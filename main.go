@@ -139,7 +139,7 @@ func (j *Job) flush() {
 	for k, q := range j.queues {
 		rows := q.Clear()
 		for len(rows) > 0 {
-			batchInsertSize = 1000
+			batchInsertSize = 2048
 			if len(rows) < batchInsertSize {
 				batchInsertSize = len(rows)
 			}
